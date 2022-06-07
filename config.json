@@ -1,0 +1,5 @@
+{
+    "port": 8080,
+    "peopleUrl": "https://swapi.dev/api/people/",
+    "planetsUrl": "https://swapi.dev/api/planets/"
+}
