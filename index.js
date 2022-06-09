@@ -7,14 +7,14 @@ const { getPlanets } = require('./src/planets');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', { headers: req.headers });
 });
 
 app.get('/people/:sortBy?', async (req, res) => {
     let request;
     const sortKey = req.params.sortBy;
     // request = await getPeople(sortKey);
-    res.setHeader('test', 'Hello');
+    // res.setHeader('Cache-Control', 'Hello');
     console.log("INCOME CACHE HEADER", req.headers['cache-control']);
     console.log("CACHE HEADER", res.getHeader('Cache-Control'));
     request = { message: "Hello world", headers: res.getHeaders(), orighead: req.headers }
