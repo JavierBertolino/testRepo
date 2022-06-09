@@ -10,17 +10,17 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.get('/people/:sortBy?', async(req, res) => {
+app.get('/people/:sortBy?', async (req, res) => {
     let request;
     const sortKey = req.params.sortBy;
     // request = await getPeople(sortKey);
-    request = { message: "Hello world"}
-    res.setHeader('test', 'Hola chris');
+    res.setHeader('test', 'Hello');
+    request = { message: "Hello world", headers: res.getHeaders() }
     res.send(request);
     // res.render('view', { results: request, header: 'People' });
 });
 
-app.get('/planets', async(req, res) => {
+app.get('/planets', async (req, res) => {
     let request;
     request = await getPlanets();
     res.render('view', { results: request, header: 'Planets' });
