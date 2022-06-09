@@ -15,6 +15,7 @@ app.get('/people/:sortBy?', async (req, res) => {
     const sortKey = req.params.sortBy;
     // request = await getPeople(sortKey);
     res.setHeader('test', 'Hello');
+    console.log("CACHE HEADER", res.getHeader('Cache-Control'));
     request = { message: "Hello world", headers: res.getHeaders() }
     res.send(request);
     // res.render('view', { results: request, header: 'People' });
