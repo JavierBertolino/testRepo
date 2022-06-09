@@ -17,9 +17,9 @@ app.get('/people/:sortBy?', async (req, res) => {
     res.setHeader('test', 'Hello');
     console.log("INCOME CACHE HEADER", req.headers['cache-control']);
     console.log("CACHE HEADER", res.getHeader('Cache-Control'));
-    request = { message: "Hello world", headers: res.getHeaders() }
-    // res.send(request);
-    res.render('view', { results: request, orighead: req.headers });
+    request = { message: "Hello world", headers: res.getHeaders(), orighead: req.headers }
+    res.send(request);
+    // res.render('view', { results: request, orighead: req.headers });
 });
 
 app.get('/planets', async (req, res) => {
