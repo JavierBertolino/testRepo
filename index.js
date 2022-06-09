@@ -15,16 +15,17 @@ app.get('/people/:sortBy?', async (req, res) => {
     const sortKey = req.params.sortBy;
     // request = await getPeople(sortKey);
     res.setHeader('test', 'Hello');
+    console.log("INCOME CACHE HEADER", req.headers['cache-control']);
     console.log("CACHE HEADER", res.getHeader('Cache-Control'));
     request = { message: "Hello world", headers: res.getHeaders() }
-    res.send(request);
-    // res.render('view', { results: request, header: 'People' });
+    // res.send(request);
+    res.render('view', { results: request, orighead: req.headers });
 });
 
 app.get('/planets', async (req, res) => {
     let request;
     request = await getPlanets();
-    res.render('view', { results: request, header: 'Planets' });
+    res.render('view', { results: request, orighead: req });
 });
 
 
