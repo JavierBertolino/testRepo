@@ -7,6 +7,7 @@ const { getPlanets } = require('./src/planets');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+    res.setHeader('Cache-Control', 'max-age=7');
     res.render('home', { headers: req.headers });
 });
 
